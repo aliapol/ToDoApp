@@ -51,7 +51,7 @@ input {
     padding: .5rem;
 }
 
-#listcontainer > ol > li > button {
+.remove {
     color: black;
     font-weight: 400;
     float: right;
