@@ -28,10 +28,10 @@
             
                 <section ng-class="{ 'completed': task.taskComplete === true, 'false': task.taskComplete === false}" >
                         
-                    <p>
-                        <div ng-hide="class === false"><button type="button" class="complete">Complete</button></div>
+                    <p><!--hide works but need to make it an ng-if statement-->
+                        <div ng-hide="class === false"><button type="button" class="complete">Complete</button>
                         {{ task.taskName }}. {{ task.taskComplete }}
-                        <button class="remove" ng-click="remove">X</button>
+                        <button class="remove" ng-click="remove">X</button></div>
                     </p>
                 </section>
             </li>
