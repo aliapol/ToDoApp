@@ -18,9 +18,32 @@ function toDoController() {
     },
     {
         taskName: "Wash Car",
-        taskComplete: false
+        taskComplete: false  
     }];
+    console.log(vm.toDo);
+
+    vm.addTask = (name) => {
+        vm.newtoDo = {
+            taskName: name,
+            taskComplete: false
+        }
+        console.log(vm.newtoDo);
+        vm.toDo.push(vm.newtoDo);
+        vm.task = {};
+        
+    };
+    vm.clearForm = () => {
+        vm.task = {};    
+    };    
+
+    vm.removeTask = (index, task) => {
+        vm.toDo.splice(index, 1);
+    };
     
+    
+    vm.completeTask = ($index, task) => {
+        task.taskComplete = true;
+    };
 }
 
 

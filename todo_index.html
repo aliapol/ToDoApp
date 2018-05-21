@@ -23,19 +23,21 @@
     <ol ng-controller="toDoController as item">
             <!--person is just a word that represents each thing inside our array-->
             <!-- the ngRepeat directive to create a new div for each element in the list -->
-            <li ng-repeat="task in item.toDo">
+            <li ng-repeat="task in item.toDo | filter: filter | orderBy: 'task'">
             <!-- Using the ngClass directive to conditionally apply the class of complete or false to our elements based on the task.taskComplete property's value. -->
             
                 <section ng-class="{ 'completed': task.taskComplete === true, 'false': task.taskComplete === false}" >
                         
-                    <p><!--hide works but need to make it an ng-if statement-->
-                        <button class="complete" ng-if="task.taskComplete === false">Complete</button></span>
+                    <p>
+                        <button class="complete" ng-if="task.taskComplete === false" ng-click="item.completeTask($index, task);">Complete</button>
                         {{ task.taskName }}.
-                        <button class="remove" ng-click="remove">X</button>
+                        <a href="" class="remove" ng-click="item.removeTask($index, task);">X</a>
+      
+                    
                     </p>
                 </section>
             </li>
-    </ol>
+    
 
 
                 
@@ -44,15 +46,14 @@
 
 
 
+    <form ng-submit="item.addTask(item.task.name);">
+    <input type="text" ng-model="item.task.name" placeholder="add your to-dos"> 
+    
 
-
-    <input type="text" ng-model="newitem" placeholder="add your to-dos"> 
-    <p>{{ newitem }}</p> <!--displays the value of whatever was typed into "add.item"-->
-
-    <button class="add" ng-click="insert(add-New)">Add</button>
-
+   
+    </form> 
 </div>
-
+</ol>
     
 
     
